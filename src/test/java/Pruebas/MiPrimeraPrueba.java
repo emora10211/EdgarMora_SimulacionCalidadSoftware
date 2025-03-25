@@ -190,4 +190,18 @@ public class MiPrimeraPrueba {
 
         System.out.println("Test miSextoTest finalizado correctamente: el logo del robot es visible.");
     }
+    
+    /**
+     * miSeptimoTestConPOM, valido el login usando el patrón Page Object Model (POM).
+     */
+    @Test
+    public void miSeptimoTestConPOM() {
+        LoginPage login = new LoginPage(driver);
+        login.escribirUsuario("standard_user");
+        login.escribirClave("secret_sauce");
+        login.hacerLogin();
+
+        assertTrue("No se validó el login con POM correctamente", login.loginExitoso());
+    }
+
 }
